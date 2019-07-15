@@ -3,8 +3,8 @@ var noboCalendar = {
   next: document.querySelectorAll('[data-calendar-toggle="next-nobo"]')[0],
   previous: document.querySelectorAll('[data-calendar-toggle="previous-nobo"]')[0],
   label: document.querySelectorAll('[data-calendar-label="month-nobo"]')[0],
-  label2: document.querySelectorAll('[data-calendar-label="month-nobo-tomorrow"]')[0],
-  label3: document.querySelectorAll('[data-calendar-label="month-nobo-dayAfterTomorrow"]')[0],
+  // label2: document.querySelectorAll('[data-calendar-label="month-nobo-tomorrow"]')[0],
+  // label3: document.querySelectorAll('[data-calendar-label="month-nobo-dayAfterTomorrow"]')[0],
 
   activeDates: null,
   date: new Date(),
@@ -175,7 +175,7 @@ var noboCalendar = {
       this.createDay(
         this.date.getDate(), // Month Day
         this.date.getDay(),  // Weekday
-        this.date.getFullYear() 
+        this.date.getFullYear()
       )
       this.date.setDate(this.date.getDate() + 1)
     }
