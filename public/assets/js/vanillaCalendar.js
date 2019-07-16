@@ -41,10 +41,26 @@ var vanillaCalendar = {
     })
     // Clears the calendar and shows the previous month
     this.previous.addEventListener('click', function () {
+      var weekNum = 0;
+      var day = _this.date.getDate() - 14
+      console.log("First Day of the last week is: " + day + " Month is " + _this.date.getMonth())
+      var n = day/7
+      var dec_portion = Math.floor(n);
+      var rem_portion = n - Math.floor(n)
+      // console.log("day remains: " + Math.floor(n) + " Decimal: " + (n - Math.floor(n)))
+      if(rem_portion === 0) {
+        var weekNum = dec_portion;
+        console.log("Week #" + weekNum)
+      } else {
+        var weekNum = dec_portion + 1;
+        console.log("Week #" + weekNum)
+      }
+
       _this.clearCalendar()
-      var prevMonth = _this.date.getMonth() - 1
-      _this.date.setMonth(prevMonth)
-      _this.createMonth(1)
+      // var prevMonth = _this.date.getMonth() - 1
+      // _this.date.setMonth(prevMonth)
+      _this.date.setDate(day)
+      _this.createMonth(weekNum)
     })
   },
 
@@ -55,13 +71,8 @@ var vanillaCalendar = {
     newDay.className = 'vcal-date'
     newDay.setAttribute('data-calendar-date', this.date)
 
-    // if it's the first day of the month
-    if (num === 1) {
-      if (day === 0) {
-        newDay.style.marginLeft = (6 * 14.28) + '%'
-      } else {
-        newDay.style.marginLeft = ((day - 1) * 14.28) + '%'
-      }
+    if(day === 6 || day === 0) {
+      newDay.classList.add('vcal-date--weekend')
     }
 
     if (this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1) {
@@ -136,21 +147,12 @@ var vanillaCalendar = {
         this.date.getFullYear(),
       )
       if (this.date.getDay() === 0) {
-        this.date.setDate(7*week + 1)
+        // this.date.setDate(7*week + 1)
+        this.date.setDate((this.date.getDate() + 1))
         console.log("Week : " + week + " -- Days: " + (7*week + 1))
         week++
       } else {
-        // if(this.date.getDate() === 1 && week > 4) {
-        //   week = 1
-        //   this.date.setDate(1)
-        // } else {
-        //   this.date.setDate(this.date.getDate() + 1)
-        // }
-        if (this.date.getMonth() != currentMonth) {  // here stacked. how to put two months days in a row
-          week = 1
-        } else {
-          this.date.setDate(this.date.getDate() + 1)
-        }
+        this.date.setDate(this.date.getDate() + 1)
       }
     }
 
@@ -159,27 +161,40 @@ var vanillaCalendar = {
     // this.date.setDate(1)
     // this.date.setMonth(this.date.getMonth() - 1)
 
-
     this.label.innerHTML =
-      this.date.getDate() + ' ' + this.monthsAsString(this.date.getMonth())
+      this.monthsAsString(this.date.getMonth()) + (this.date.getDate())
+      + ',  ' + this.weekdaysAsString(this.date.getDay())
+
     this.dateClicked()
   },
 
   monthsAsString: function (monthIndex) {
     return [
-      'I-сар',
-      'II-сар',
-      'III-сар',
-      'IV-сар',
-      'V-сар',
-      'VI-сар',
-      'VII-сар',
-      'VIII-сар',
-      'IX-сар',
-      'X-сар',
-      'XI-сар',
-      'XII-сар'
+      'I-',
+      'II-',
+      'III-',
+      'IV-',
+      'V-',
+      'VI-',
+      'VII-',
+      'VIII-',
+      'IX-',
+      'X-',
+      'XI-',
+      'XII-'
     ][monthIndex]
+  },
+
+  weekdaysAsString: function (weekdayIndex) {
+    return [
+      'Ням',
+      'Даваа',
+      'Мягмяр',
+      'Лхагва',
+      'Пүрэв',
+      'Баасан',
+      'Бямба'
+    ][weekdayIndex]
   },
 
   clearCalendar: function () {
