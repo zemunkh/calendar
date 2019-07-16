@@ -100,7 +100,6 @@ var vanillaCalendar = {
     var week = 0
     if (weekNum === 0) {
       var day = this.todaysDate.getDate()
-      this.date.setDate(day)
       var n = day/7
       var dec_portion = Math.floor(n);
       var rem_portion = n - Math.floor(n)
@@ -112,6 +111,7 @@ var vanillaCalendar = {
         var week = dec_portion + 1;
         console.log("Week #" + week)
       }
+      this.date.setDate(day - this.date.getDay())
       weekNum = week
     } else {
       var day = this.date.getDate()
@@ -128,9 +128,7 @@ var vanillaCalendar = {
       }
     }
 
-
     var currentMonth = this.date.getMonth()
-    // while (this.date.getMonth() === currentMonth) {
     while (weekNum === week) {
       this.createDay(
         this.date.getDate(),
@@ -142,15 +140,21 @@ var vanillaCalendar = {
         console.log("Week : " + week + " -- Days: " + (7*week + 1))
         week++
       } else {
-        if(this.date.getDate() === 1 && week > 3) {
+        // if(this.date.getDate() === 1 && week > 4) {
+        //   week = 1
+        //   this.date.setDate(1)
+        // } else {
+        //   this.date.setDate(this.date.getDate() + 1)
+        // }
+        if (this.date.getMonth() != currentMonth) {  // here stacked. how to put two months days in a row
           week = 1
-          this.date.setDate(1)
         } else {
           this.date.setDate(this.date.getDate() + 1)
         }
       }
-
     }
+
+
     // while loop trips over and day is at 30/31, bring it back
     // this.date.setDate(1)
     // this.date.setMonth(this.date.getMonth() - 1)
