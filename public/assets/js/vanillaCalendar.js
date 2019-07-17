@@ -43,6 +43,8 @@ var vanillaCalendar = {
     this.previous.addEventListener('click', function () {
       var weekNum = 0;
       var day = _this.date.getDate() - 14
+      _this.date.setDate(day)
+      day = _this.date.getDate()
       console.log("First Day of the last week is: " + day + " Month is " + _this.date.getMonth())
       var n = day/7
       var dec_portion = Math.floor(n);
@@ -59,7 +61,7 @@ var vanillaCalendar = {
       _this.clearCalendar()
       // var prevMonth = _this.date.getMonth() - 1
       // _this.date.setMonth(prevMonth)
-      _this.date.setDate(day)
+      // _this.date.setDate(day)
       _this.createMonth(weekNum)
     })
   },
@@ -122,7 +124,8 @@ var vanillaCalendar = {
         var week = dec_portion + 1;
         console.log("Week #" + week)
       }
-      this.date.setDate(day - this.date.getDay())
+      this.date.setDate(day - this.todaysDate.getDay() + 1)
+      console.log("The first day of the week #" + this.date.getDate())
       weekNum = week
     } else {
       var day = this.date.getDate()

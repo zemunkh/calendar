@@ -2,7 +2,6 @@
   --vcal-bg-color: #fff;
   --vcal-border-radius: 0;
   --vcal-border-color: #e7e9ed;
-  --vcal-day-radius: 50;
   --vcal-today-bg-color: #10989E;
   --vcal-today-color: #fff;
   --vcal-selected-bg-color: #E7E9ED;
@@ -88,7 +87,7 @@
 #v-cal .vcal-date {
   align-items: center;
   background-color: #fff;
-  border-radius: var(--vcal-day-radius);
+  border-radius: var(--vcal-border-radius);
   display: flex;
   flex-direction: column;
   flex: 0 0 14.28%;
