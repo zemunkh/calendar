@@ -95,6 +95,18 @@
   padding: 1.2rem 0;
 }
 
+#v-cal .vcal-timetable {
+  align-items: flex-start;
+  background-color: #fff;
+  border-radius: var(--vcal-border-radius);
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+  /* max-width: 14.28%; */
+  padding: 1.2rem 0;
+}
+
+
 #v-cal .vcal-date--active {
   cursor: pointer;
 }

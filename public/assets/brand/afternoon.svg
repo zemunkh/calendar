@@ -1,0 +1,20 @@
+<svg width="110px" height="32px" viewBox="0 0 110 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="homeView" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hospital-Desktop-HD" transform="translate(-94.000000, -712.000000)">
+            <g id="booking-selector" transform="translate(94.000000, 275.000000)">
+                <g id="sunset-table" transform="translate(0.000000, 435.000000)">
+                    <text id="Орой" font-family="NotoSans-Light, Noto Sans" font-size="20" font-weight="300" fill="#4A4A4A" fill-opacity="0.955276268">
+                        <tspan x="60" y="29">Орой</tspan>
+                    </text>
+                    <g id="sunset-icon" fill-rule="nonzero">
+                        <g id="Icon" transform="translate(0.000000, 2.100000)" fill="#40C0E7">
+                            <polygon id="Icon-Path" points="21.875 4.4625 19.6875 4.4625 19.6875 0.0875 15.3125 0.0875 15.3125 4.4625 13.125 4.4625 17.5 11.025"></polygon>
+                            <path d="M30.625,26.3375 L27.16875,23.75625 L28.875,19.775 L24.5,19.271875 L24.0625,14.9625 L20.08125,16.66875 L17.5,13.2125 L14.91875,16.66875 L10.9375,14.9625 L10.434375,19.3375 L6.125,19.775 L7.83125,23.75625 L4.375,26.3375 L0,26.3375 L0,28.525 L35,28.525 L35,26.3375 L30.625,26.3375 Z M8.75,26.3375 C8.91130481,21.5793176 12.7267949,17.7571387 17.4846875,17.5875 C22.2488455,17.7409352 26.0798913,21.5585957 26.25,26.3221875 L8.75,26.3375 Z" id="Icon-Shape"></path>
+                        </g>
+                        <rect id="ViewBox" x="0" y="0" width="35" height="35"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

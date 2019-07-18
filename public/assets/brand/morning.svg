@@ -1,0 +1,20 @@
+<svg width="117px" height="29px" viewBox="0 0 117 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="homeView" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hospital-Desktop-HD" transform="translate(-94.000000, -513.000000)">
+            <g id="booking-selector" transform="translate(94.000000, 275.000000)">
+                <g id="morning-table" transform="translate(0.000000, 236.000000)">
+                    <text id="Өглөө" font-family="NotoSans-Light, Noto Sans" font-size="20" font-weight="300" fill="#4A4A4A" fill-opacity="0.955276268">
+                        <tspan x="60" y="29">Өглөө</tspan>
+                    </text>
+                    <g id="sunrise-icon" fill-rule="nonzero">
+                        <g id="Icon" transform="translate(0.000000, 1.944444)" fill="#40C0E7">
+                            <polygon id="Icon-Path" points="13.125 6.75813008 15.3125 6.75813008 15.3125 11.2042683 19.6875 11.2042683 19.6875 6.75813008 21.875 6.75813008 17.5 0.0889227642"></polygon>
+                            <path d="M27.16875,24.1425305 L28.875,20.0965447 L24.5,19.5852388 L24.0625,15.2057927 L20.08125,16.9397866 L17.5,13.4273374 L14.91875,16.9397866 L10.9375,15.2057927 L10.434375,19.6519309 L6.125,20.0965447 L7.83125,24.1425305 L4.375,26.765752 L0,26.765752 L0,28.9888211 L35,28.9888211 L35,26.765752 L30.625,26.765752 L27.16875,24.1425305 Z M8.75,26.765752 C8.91130481,21.9302008 12.7267949,18.0458726 17.4846875,17.8734756 C22.2488455,18.0294057 26.0798913,21.909142 26.25,26.7501905 L8.75,26.765752 Z" id="Icon-Shape"></path>
+                        </g>
+                        <rect id="ViewBox" x="0" y="0" width="35" height="35"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

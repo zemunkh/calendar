@@ -1,0 +1,19 @@
+<svg width="109px" height="35px" viewBox="0 0 109 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="homeView" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hospital-Desktop-HD" transform="translate(-94.000000, -610.000000)">
+            <g id="booking-selector" transform="translate(94.000000, 275.000000)">
+                <g id="afternoon-table" transform="translate(0.000000, 335.000000)">
+                    <text id="Өдөр" font-family="NotoSans-Light, Noto Sans" font-size="20" font-weight="300" fill="#4A4A4A" fill-opacity="0.955276268">
+                        <tspan x="60" y="29">Өдөр</tspan>
+                    </text>
+                    <g id="sun-icon" fill-rule="nonzero">
+                        <g id="Icon" fill="#40C0E7">
+                            <path d="M35,17.5 L30.1875,14 L32.59375,8.75 L26.6875,8.3125 L26.25,2.40625 L21,4.8125 L17.5,0 L14,4.8125 L8.75,2.40625 L8.3125,8.3125 L2.40625,8.75 L4.8125,14 L0,17.5 L4.8125,21 L2.40625,26.25 L8.3125,26.6875 L8.75,32.59375 L14,30.1875 L17.5,35 L21,30.1875 L26.25,32.59375 L26.6875,26.6875 L32.59375,26.25 L30.1875,21 L35,17.5 Z M17.5,28.4375 C11.375,28.4375 6.5625,23.625 6.5625,17.5 C6.5625,11.375 11.375,6.5625 17.5,6.5625 C23.625,6.5625 28.4375,11.375 28.4375,17.5 C28.4375,23.625 23.625,28.4375 17.5,28.4375 Z" id="Icon-Shape"></path>
+                        </g>
+                        <rect id="ViewBox" x="0" y="0" width="35" height="35"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

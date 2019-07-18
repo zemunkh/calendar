@@ -3,6 +3,9 @@ var vanillaCalendar = {
   next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
   previous: document.querySelectorAll('[data-calendar-toggle="previous"]')[0],
   label: document.querySelectorAll('[data-calendar-label="month"]')[0],
+
+  timetable: document.querySelectorAll('[data-timetable-area="time"]')[0],
+
   activeDates: null,
   date: new Date(),
   todaysDate: new Date(),
@@ -10,9 +13,11 @@ var vanillaCalendar = {
   init: function (options) {
     this.options = options
     this.date.setDate(1)
-    this.createMonth(0)
+    this.createWeek(0)
+    // this.createTime() // New
     this.createListeners()
   },
+
   createListeners: function () {
     var _this = this
 
@@ -20,11 +25,12 @@ var vanillaCalendar = {
     this.next.addEventListener('click', function () {
       var weekNum = 0;
       var day = _this.date.getDate()
+      _this.date.setDate(day)
+
       console.log("First Day of the next week is: " + day + " Month is " + _this.date.getMonth())
       var n = day/7
       var dec_portion = Math.floor(n);
       var rem_portion = n - Math.floor(n)
-      // console.log("day remains: " + Math.floor(n) + " Decimal: " + (n - Math.floor(n)))
       if(rem_portion === 0) {
         var weekNum = dec_portion;
         console.log("Week #" + weekNum)
@@ -34,22 +40,19 @@ var vanillaCalendar = {
       }
 
       _this.clearCalendar()
-      // var nextMonth = _this.date.getMonth() + 1
-      // _this.date.setMonth(nextMonth)
-      _this.date.setDate(day)
-      _this.createMonth(weekNum)
+      _this.createWeek(weekNum)
     })
-    // Clears the calendar and shows the previous month
+    // Clears the calendar and shows the previous week
     this.previous.addEventListener('click', function () {
       var weekNum = 0;
       var day = _this.date.getDate() - 14
       _this.date.setDate(day)
+
       day = _this.date.getDate()
       console.log("First Day of the last week is: " + day + " Month is " + _this.date.getMonth())
       var n = day/7
       var dec_portion = Math.floor(n);
       var rem_portion = n - Math.floor(n)
-      // console.log("day remains: " + Math.floor(n) + " Decimal: " + (n - Math.floor(n)))
       if(rem_portion === 0) {
         var weekNum = dec_portion;
         console.log("Week #" + weekNum)
@@ -59,11 +62,20 @@ var vanillaCalendar = {
       }
 
       _this.clearCalendar()
-      // var prevMonth = _this.date.getMonth() - 1
-      // _this.date.setMonth(prevMonth)
-      // _this.date.setDate(day)
-      _this.createMonth(weekNum)
+      _this.createWeek(weekNum)
     })
+  },
+
+  createTime: function () {
+    var timeBox = document.createElement('div')
+    var hourEl = document.createElement('span')
+    console.log("Hello from createTime");
+    hourEl.innerHTML = '11:00'
+    timeBox.className =  'vcal-timetable'
+    // timeBox.setAttribute('data-calendar-date', 'hi2')
+
+    timeBox.appendChild(hourEl)
+    this.timetable.appendChild(timeBox)
   },
 
   createDay: function (num, day, year) {
@@ -97,11 +109,15 @@ var vanillaCalendar = {
     this.activeDates = document.querySelectorAll(
       '[data-calendar-status="active"]'
     )
+
     for (var i = 0; i < this.activeDates.length; i++) {
       this.activeDates[i].addEventListener('click', function (event) {
         var picked = document.querySelectorAll(
           '[data-calendar-label="picked"]'
         )[0]
+
+        _this.createTime()
+
         picked.innerHTML = this.dataset.calendarDate
         _this.removeActiveClass()
         this.classList.add('vcal-date--selected')
@@ -109,14 +125,13 @@ var vanillaCalendar = {
     }
   },
 
-  createMonth: function (weekNum) {
+  createWeek: function (weekNum) {
     var week = 0
     if (weekNum === 0) {
       var day = this.todaysDate.getDate()
       var n = day/7
       var dec_portion = Math.floor(n);
       var rem_portion = n - Math.floor(n)
-      // console.log("day remains: " + Math.floor(n) + " Decimal: " + (n - Math.floor(n)))
       if(rem_portion === 0) {
         var week = dec_portion;
         console.log("Week #" + week)
@@ -132,7 +147,6 @@ var vanillaCalendar = {
       var n = day/7
       var dec_portion = Math.floor(n);
       var rem_portion = n - Math.floor(n)
-      // console.log("day remains: " + Math.floor(n) + " Decimal: " + (n - Math.floor(n)))
       if(rem_portion === 0) {
         var week = dec_portion;
         console.log("Week #" + week)
@@ -158,11 +172,6 @@ var vanillaCalendar = {
         this.date.setDate(this.date.getDate() + 1)
       }
     }
-
-
-    // while loop trips over and day is at 30/31, bring it back
-    // this.date.setDate(1)
-    // this.date.setMonth(this.date.getMonth() - 1)
 
     this.label.innerHTML =
       this.monthsAsString(this.date.getMonth()) + (this.date.getDate())
