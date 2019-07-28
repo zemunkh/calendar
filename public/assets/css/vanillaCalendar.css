@@ -96,15 +96,20 @@
 }
 
 #v-cal .vcal-timetable {
-  align-items: flex-start;
+  align-items: center;
   background-color: #fff;
   border-radius: var(--vcal-border-radius);
   display: flex;
   flex-direction: column;
   flex: 0 0 25%;
-  /* max-width: 14.28%; */
+  max-width: 25%;
   padding: 1.2rem 0;
 }
+
+// |   25%   |  25%  |  25%  |  25%  |
+// | Morning | 09:00 | 10:00 | 11:00 |
+// |   Noon  | 12:00 | 13:00 | 14:00 |
+// |Afternoon| 15:00 | 16:00 | 17:00 |
 
 
 #v-cal .vcal-date--active {

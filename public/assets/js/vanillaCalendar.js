@@ -1,3 +1,4 @@
+var hoho = '';
 var vanillaCalendar = {
   month: document.querySelectorAll('[data-calendar-area="month"]')[0],
   next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
@@ -67,15 +68,19 @@ var vanillaCalendar = {
   },
 
   createTime: function () {
-    var timeBox = document.createElement('div')
-    var hourEl = document.createElement('span')
-    console.log("Hello from createTime");
-    hourEl.innerHTML = '11:00'
-    timeBox.className =  'vcal-timetable'
-    // timeBox.setAttribute('data-calendar-date', 'hi2')
+    // var timeBox = document.createElement('div')
+    // var hourEl = document.createElement('span')
+    // console.log("Hello from createTime");
+    //
+    // for (var i = 0; i < 4; i++) {
+    //   hourEl.innerHTML = '<span id="example" class="d-inline-block" data-toggle="popover" data-content="Цахиалагдсан"><button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>11:00</button></span>'
+    //   timeBox.className =  'vcal-timetable'
+    //   timeBox.appendChild(hourEl)
+    //   this.timetable.appendChild(timeBox)
+    //   console.log("hello hoho: ", hoho);
+    // }
 
-    timeBox.appendChild(hourEl)
-    this.timetable.appendChild(timeBox)
+    // timeBox.setAttribute('data-calendar-date', 'hi2')
   },
 
   createDay: function (num, day, year) {
@@ -86,7 +91,7 @@ var vanillaCalendar = {
     newDay.setAttribute('data-calendar-date', this.date)
 
     if(day === 6 || day === 0) {
-      newDay.classList.add('vcal-date--weekend')
+      // newDay.classList.add('vcal-date--weekend')
     }
 
     if (this.options.disablePastDays && this.date.getTime() <= this.todaysDate.getTime() - 1) {
@@ -139,7 +144,12 @@ var vanillaCalendar = {
         var week = dec_portion + 1;
         console.log("Week #" + week)
       }
-      this.date.setDate(day - this.todaysDate.getDay() + 1)
+      if(this.todaysDate.getDay() === 0) {
+        this.date.setDate(day - 6)
+      } else {
+        this.date.setDate(day - this.todaysDate.getDay() + 1)
+      }
+
       console.log("The first day of the week #" + this.date.getDate())
       weekNum = week
     } else {
@@ -219,3 +229,10 @@ var vanillaCalendar = {
     }
   }
 }
+
+$(document).ready(function(){
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+    hoho = 'hellow from jQuery!';
+  })
+});
