@@ -1,4 +1,4 @@
-var hoho = '';
+
 var vanillaCalendar = {
   month: document.querySelectorAll('[data-calendar-area="month"]')[0],
   next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
@@ -15,7 +15,6 @@ var vanillaCalendar = {
     this.options = options
     this.date.setDate(1)
     this.createWeek(0)
-    // this.createTime() // New
     this.createListeners()
   },
 
@@ -67,11 +66,22 @@ var vanillaCalendar = {
     })
   },
 
-  createTime: function () {
-    // var timeBox = document.createElement('div')
-    // var hourEl = document.createElement('span')
-    // console.log("Hello from createTime");
-    //
+  createTable: function (row, index) {
+    var timeTable = document.createElement('div')
+    var time = document.createElement('span')
+    console.log("Hello from createTable");
+
+    if(index === 0) {
+      time.innerHTML = '<span style="padding-left:10px; padding-top: 10px;"><img src="/assets/brand/morning.svg" alt=""></span>'
+      timeTable.className = 'vcal-timetable'
+    } else {
+      time.innerHTML = '<span id="example" class="d-inline-block" data-toggle="popover" data-content="Цахиалагдсан"><button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>'+ index + ':00' +'</button></span>';
+      timeTable.className = 'vcal-timetable'
+    }
+
+
+    timeTable.appendChild(time);
+    this.timetable.appendChild(timeTable);
     // for (var i = 0; i < 4; i++) {
     //   hourEl.innerHTML = '<span id="example" class="d-inline-block" data-toggle="popover" data-content="Цахиалагдсан"><button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>11:00</button></span>'
     //   timeBox.className =  'vcal-timetable'
@@ -166,7 +176,6 @@ var vanillaCalendar = {
       }
     }
 
-    var currentMonth = this.date.getMonth()
     while (weekNum === week) {
       this.createDay(
         this.date.getDate(),
@@ -182,6 +191,14 @@ var vanillaCalendar = {
         this.date.setDate(this.date.getDate() + 1)
       }
     }
+
+    for (var row = 0; row < 3; row++) {
+      for (var i = 0; i < 4; i++) {
+          this.createTable(row, i)
+      }
+    }
+
+
 
     this.label.innerHTML =
       this.monthsAsString(this.date.getMonth()) + (this.date.getDate())
